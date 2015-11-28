@@ -61,7 +61,6 @@
 #define FCCURR_BYTE2 2
 #define FCCURR_BYTE3 3
 
-//Super capacitor volt and current mV mA
 #define MESSAGE_FC_LOGGING_CAPVOLT_CAPCURR_ID 1515
 #define MESSAGE_FC_LOGGING_CAPVOLT_CAPCURR_LENGTH 8
 #define CAPVOLT_INT 0 //fc uses 4 byte integers
@@ -122,10 +121,6 @@
 #define AMBTEMP4_BYTE2 6
 #define AMBTEMP4_BYTE3 7
 
-//Fuelcell state
-#define MESSAGE_FC_LOGGING_STATE_ID 1540
-#define MESSAGE_FC_LOGGING_STATE_LENGTH 4
-#define STATE_BYTE 3
-#define STATE_INT 0
+
 
 #endif
