@@ -4,8 +4,8 @@
 /*
  * Message ID format (11 bits)
  *  Bit [2-0] store the message data type
- *  Bit [5-3] device id
- *  Bit [8-6] message id
+ *  Bit [4-3] device id
+ *  Bit [8-5] message id
  *  Bit [10-9] priority level
  *    0 - mission critical
  *    1 - important
@@ -23,7 +23,8 @@ namespace can_msg {
     UINT8 = 2,
     INT16 = 3,
     UINT16 = 4,
-    INT32 = 5
+    INT32 = 5,
+	UINT32 = 6,
   } format_t;
 
   /*
@@ -32,8 +33,8 @@ namespace can_msg {
   typedef enum {
     FUEL_CELL = 0,
     MOTOR = 1,
-    DISP_LCD = 6,
-    AUX = 7
+    AUX = 2,
+	OTHER = 3
   } device_t;
   
   /*
@@ -49,10 +50,39 @@ namespace can_msg {
   /*
    * Fuel cell
    */
+   //to do: reorder so that levels have higher priority
   typedef enum {
-    FVOLTAGE = 0
+	//purge data
+    FC_ERROR = 0,  						//len 1
+	FC_STATE = 1,							//len 1
+	FC_PURGE_COUNT = 2,					//len 1
+	FC_TIME_BETWEEN_LAST_PURGES = 3,	//len 1
+	FC_ENERGY_SINCE_LAST_PURGE = 4,		//len 1
+	FC_TOTAL_ENERGY = 5,				//len 1
+	FC_CHARGE_SINCE_LAST_PURGE = 6,		//len 1
+	FC_TOTAL_CHARGE = 8,					//len 1
+	//FC levels
+	FCVOLT = 9,							//len 1
+	FCCURR = 10,						//len 1
+	FCTEMP = 11,						//len 1
+	FCPRES = 12,						//len 1
+	CAPVOLT = 13,						//len 1
+	FC_FAN_SPEED = 14,					//len 1
+	//output states
+	FC_OUTPUTS = 15					//len 6 [fc_outputs_t]
   } fuel_cell_t;
-  
+
+  typedef enum {
+	FC_START_RELAY = 0,
+	FC_RES_RELAY = 1,
+	FC_CAP_RELAY = 2,
+	FC_MOTOR_RELAY = 3,
+	FC_PURGE_VALVE = 4,
+	FC_H2_VALVE = 5
+  } fc_outputs_t;
+
+	
+	
   /*
    * Motor system
    */
@@ -67,6 +97,7 @@ namespace can_msg {
     MERROR_STALL = 0,
     MERROR_OVERCURRENT = 1
   } motor_error_t;
+
 };
 
 #endif

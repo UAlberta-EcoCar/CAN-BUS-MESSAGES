@@ -1,7 +1,10 @@
 #ifndef CAN_MESSAGE_H
 #define CAN_MESSAGE_H
 
+#include <stdio.h> //needed for memcpy and uint8_t , unint16_t etc
+#include <string.h> //needed for memcpy
 #include "can_message_def.h"
+
 
 namespace can_msg {
   /*
@@ -27,6 +30,8 @@ namespace can_msg {
           _len = len * 2; break;
         case INT32:
           _len = len * 4; break;
+		case UINT32:
+		  _len = len * 4; break;
       }
     }  
     // get id
