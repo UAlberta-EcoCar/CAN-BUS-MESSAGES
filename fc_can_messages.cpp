@@ -35,16 +35,16 @@ can_msg::MsgEncode fc_charge_since_last_purge_msg( can_msg::UINT32, can_msg::FUE
 can_msg::MsgEncode fc_total_charge_msg( can_msg::UINT32, can_msg::FUEL_CELL, can_msg::FC_TOTAL_CHARGE, can_msg::LOGGING, 1);
 
 //FCVOLT
-can_msg::MsgEncode fcvolt_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FCVOLT, can_msg::INFORMATION, 1);
+can_msg::MsgEncode fc_volt_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FC_VOLT, can_msg::INFORMATION, 1);
 
 //FCCURR
-can_msg::MsgEncode fccurr_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FCCURR, can_msg::INFORMATION, 1);
+can_msg::MsgEncode fc_curr_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FC_CURR, can_msg::INFORMATION, 1);
 
 //FCTEMP
-can_msg::MsgEncode fctemp_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FCTEMP, can_msg::INFORMATION, 1);
+can_msg::MsgEncode fc_temp_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FC_TEMP, can_msg::INFORMATION, 1);
 
 //FCPRES
-can_msg::MsgEncode fcpres_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FCPRES, can_msg::INFORMATION, 1);
+can_msg::MsgEncode fc_pres_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FC_PRES, can_msg::INFORMATION, 1);
 
 //CAPVOLT
 can_msg::MsgEncode fc_capvolt_msg( can_msg::INT32, can_msg::FUEL_CELL, can_msg::FC_CAPVOLT, can_msg::INFORMATION, 1);
@@ -150,46 +150,46 @@ void send_fc_total_charge(uint32_t val)
 }
 
 //FCVOLT
-void send_fcvolt(int32_t val)
+void send_fc_volt(int32_t val)
 {
 	//make a messages
 	CanMessage msg;
-	msg.id = fcvolt_msg.id();
-	msg.length = fcvolt_msg.len();
-	fcvolt_msg.buf(msg.data, val);
+	msg.id = fc_volt_msg.id();
+	msg.length = fc_volt_msg.len();
+	fc_volt_msg.buf(msg.data, val);
 	while(can_send_message(&msg));
 }
 
 //FCCURR
-void send_fccurr(int32_t val)
+void send_fc_curr(int32_t val)
 {
 	//make a messages
 	CanMessage msg;
-	msg.id = fccurr_msg.id();
-	msg.length = fccurr_msg.len();
-	fccurr_msg.buf(msg.data, val);
+	msg.id = fc_curr_msg.id();
+	msg.length = fc_curr_msg.len();
+	fc_curr_msg.buf(msg.data, val);
 	while(can_send_message(&msg));
 }
 
 //FCTEMP
-void send_fctemp(int32_t val)
+void send_fc_temp(int32_t val)
 {
 	//make a messages
 	CanMessage msg;
-	msg.id = fctemp_msg.id();
-	msg.length = fctemp_msg.len();
-	fctemp_msg.buf(msg.data, val);
+	msg.id = fc_temp_msg.id();
+	msg.length = fc_temp_msg.len();
+	fc_temp_msg.buf(msg.data, val);
 	while(can_send_message(&msg));
 }
 
 //FCPRES
-void send_fcpres(int32_t val)
+void send_fc_pres(int32_t val)
 {
 	//make a messages
 	CanMessage msg;
-	msg.id = fcpres_msg.id();
-	msg.length = fcpres_msg.len();
-	fcpres_msg.buf(msg.data, val);
+	msg.id = fc_pres_msg.id();
+	msg.length = fc_pres_msg.len();
+	fc_pres_msg.buf(msg.data, val);
 	while(can_send_message(&msg));
 }
 

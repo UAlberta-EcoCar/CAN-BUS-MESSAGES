@@ -17,13 +17,13 @@ void send_fc_charge_since_last_purge(uint32_t val);
 
 void send_fc_total_charge(uint32_t val);
 
-void send_fcvolt(int32_t val);
+void send_fc_volt(int32_t val);
 
-void send_fccurr(int32_t val);
+void send_fc_curr(int32_t val);
 
-void send_fctemp(int32_t val);
+void send_fc_temp(int32_t val);
 
-void send_fcpres(int32_t val);
+void send_fc_pres(int32_t val);
 
 void send_fc_capvolt(int32_t val);
 
