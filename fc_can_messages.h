@@ -11,5 +11,6 @@ void send_fc_time_between_last_purges(unsigned long val);
 
 void send_fc_energy_since_last_purge(unsigned long val);
 
+void send_fc_total_energy(unsigned long val);
 
 #endif
