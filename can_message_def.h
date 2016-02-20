@@ -54,22 +54,22 @@ namespace can_msg {
   typedef enum {
 	//purge data
     FC_ERROR = 0,  						//len 1
-	FC_STATE = 1,							//len 1
+	FC_STATE = 1,						//len 1
 	FC_PURGE_COUNT = 2,					//len 1
 	FC_TIME_BETWEEN_LAST_PURGES = 3,	//len 1
 	FC_ENERGY_SINCE_LAST_PURGE = 4,		//len 1
 	FC_TOTAL_ENERGY = 5,				//len 1
 	FC_CHARGE_SINCE_LAST_PURGE = 6,		//len 1
-	FC_TOTAL_CHARGE = 8,					//len 1
+	FC_TOTAL_CHARGE = 8,				//len 1
 	//FC levels
 	FCVOLT = 9,							//len 1
 	FCCURR = 10,						//len 1
 	FCTEMP = 11,						//len 1
 	FCPRES = 12,						//len 1
-	CAPVOLT = 13,						//len 1
+	FC_CAPVOLT = 13,					//len 1
 	FC_FAN_SPEED = 14,					//len 1
 	//output states
-	FC_OUTPUTS = 15					//len 6 [fc_outputs_t]
+	FC_OUTPUTS = 15						//len 6 [fc_outputs_t]
   } fuel_cell_t;
 
   typedef enum {
