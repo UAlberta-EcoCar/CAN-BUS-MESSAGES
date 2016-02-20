@@ -113,7 +113,9 @@ namespace can_msg {
   /*
   * Auxiliaries system
   */
-  
+  typedef enum {
+    SIGNAL_HORN = 0;
+  }
   
   
 	
@@ -134,5 +136,11 @@ namespace can_msg {
   } motor_error_t;
 
 };
+
+/*
+* Other systems
+*/
+
+
 
 #endif
