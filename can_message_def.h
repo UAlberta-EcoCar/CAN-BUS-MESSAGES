@@ -117,7 +117,7 @@ namespace can_msg {
   */
   typedef enum {
     SIGNAL = 0,         //len:3 [signal_t]
-    HORN_WIPERS = 1     //len:1 [horn_wipers_t]
+    HORN_WIPERS = 1     //len:2 [horn_wipers_t]
   } aux_t;
   
   typedef enum {
