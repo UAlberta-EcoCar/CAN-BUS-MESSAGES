@@ -53,25 +53,25 @@ namespace can_msg {
    //to do: reorder so that levels have higher priority
   typedef enum {
     //purge data
-    FC_ERROR = 0,                       //len 1 [fc_errors_t]
-    FC_STATE = 1,                       //len 1 [fc_state]
-    FC_PURGE_COUNT = 2,                 //len 1 
-    FC_TIME_BETWEEN_LAST_PURGES = 3,    //len 1 
-    FC_ENERGY_SINCE_LAST_PURGE = 4,	    //len 1 
-    FC_TOTAL_ENERGY = 5,                //len 1 
-    FC_CHARGE_SINCE_LAST_PURGE = 6,	    //len 1 
-    FC_TOTAL_CHARGE = 8,                //len 1 
+    FC_ERROR = 0,                       //len 1 [fc_errors_t] BOOL
+    FC_STATE = 1,                       //len 1 [fc_state]    UINT8
+    FC_PURGE_COUNT = 2,                 //len 1               UINT8
+    FC_TIME_BETWEEN_LAST_PURGES = 3,    //len 1               UINT32
+    FC_ENERGY_SINCE_LAST_PURGE = 4,	    //len 1               UINT32
+    FC_TOTAL_ENERGY = 5,                //len 1               UINT32
+    FC_CHARGE_SINCE_LAST_PURGE = 6,	    //len 1               UINT32
+    FC_TOTAL_CHARGE = 8,                //len 1               UINT32
     //FC levels
-    FC_VOLT = 9,                        //len 1 
-    FC_CURR = 10,                       //len 1 
-    FC_TEMP = 11,                       //len 1 
-    FC_PRES = 12,                       //len 1 
-    FC_CAPVOLT = 13,                    //len 1 
-    FC_FAN_SPEED = 14,                  //len 1 
+    FC_VOLT = 9,                        //len 1               INT32
+    FC_CURR = 10,                       //len 1               INT32
+    FC_TEMP = 11,                       //len 1               INT32
+    FC_PRES = 12,                       //len 1               INT32
+    FC_CAPVOLT = 13,                    //len 1               INT32
+    FC_FAN_SPEED = 14,                  //len 1               INT32 (should change to UINT16)
     //output states
-    FC_OUTPUTS = 15                     //len 6 [fc_outputs_t]
+    FC_OUTPUTS = 15                     //len 6 [fc_outputs_t] BOOL
   } fuel_cell_t;
-
+    //each error has it's own bit
   typedef enum {
     FC_ERR_CAP_DISC = 0,
     FC_ERR_FC_DISC = 1,
@@ -89,7 +89,7 @@ namespace can_msg {
     FC_ERR_BOD = 13,
     FC_ERR_PWR_BAD = 14
   } fc_errors_t;
-  
+  //fc_state is a number not BOOL
   typedef enum {
     FC_STATE_STANDBY = 0,
     FC_STATE_SHUTDOWN = 1,
@@ -100,7 +100,7 @@ namespace can_msg {
     FC_STATE_RUN = 6,
     FC_STATE_ALARM = 8
   } fc_state_t;
-  
+  //fc_outputs bits
   typedef enum {
 	FC_START_RELAY = 0,
 	FC_RES_RELAY = 1,
@@ -119,13 +119,13 @@ namespace can_msg {
     SIGNAL = 0,         //len:3 [signal_t]
     HORN_WIPERS = 1     //len:2 [horn_wipers_t]
   } aux_t;
-  
-  typedef enum {
+  //define signal bits
+  typedef enum { 
     LEFT_SIGNAL = 0,
     RIGHT_SIGNAL = 1,
     HAZARD_LIGHTS = 2
   } signal_t;
-  
+  //define bits
   typedef enum {
     HORN = 0,
     WIPER =1
