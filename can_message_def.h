@@ -110,15 +110,28 @@ namespace can_msg {
 	FC_H2_VALVE = 5
   } fc_outputs_t;
   
+  
+  
   /*
   * Auxiliaries system
   */
   typedef enum {
-    SIGNAL_HORN = 0;
-  }
+    SIGNAL = 0,         //len:3 [signal_t]
+    HORN_WIPERS = 1     //len:1 [horn_wipers_t]
+  } aux_t;
   
+  typedef enum {
+    LEFT_SIGNAL = 0,
+    RIGHT_SIGNAL = 1,
+    HAZARD_LIGHTS = 2
+  } signal_t;
   
+  typedef enum {
+    HORN = 0,
+    WIPER =1
+  } horn_wipers_t;
 	
+    
 
   /*
    * Motor system
@@ -137,10 +150,22 @@ namespace can_msg {
 
 };
 
-/*
-* Other systems
-*/
 
-
+ /*
+  * Other systems
+  */
+  typedef enum {
+      TIME = 0  // len:6 [time_t]
+  } other_t;
+  
+  typedef enum {
+      YEAR = 0,
+      MONTH = 1,
+      DAY = 2,
+      HOUR = 3,
+      MINUTE = 4,
+      SECOND = 5
+  } date_t;
+  
 
 #endif
