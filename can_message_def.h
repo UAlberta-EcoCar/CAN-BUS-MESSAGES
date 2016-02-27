@@ -36,7 +36,7 @@ namespace can_msg {
     AUX = 2,
 	OTHER = 3
   } device_t;
-  
+
   /*
    * priority
    */
@@ -46,7 +46,7 @@ namespace can_msg {
     INFORMATION = 2,
     LOGGING = 3
   } priority_t;
-  
+
   /*
    * Fuel cell
    */
@@ -109,18 +109,23 @@ namespace can_msg {
 	FC_PURGE_VALVE = 4,
 	FC_H2_VALVE = 5
   } fc_outputs_t;
-  
-  
-  
+
+
+
   /*
   * Auxiliaries system
   */
   typedef enum {
     SIGNAL = 0,         //len:3 [signal_t]
-    HORN_WIPERS = 1     //len:2 [horn_wipers_t]
+    HORN_WIPERS = 1,    //len:2 [horn_wipers_t]
+		HEADLIGHTS = 2
   } aux_t;
+	//define headlight bits
+	typedef enum {
+		HEADLIGHTBIT = 0
+	} headlight_t;
   //define signal bits
-  typedef enum { 
+  typedef enum {
     LEFT_SIGNAL = 0,
     RIGHT_SIGNAL = 1,
     HAZARD_LIGHTS = 2
@@ -130,8 +135,8 @@ namespace can_msg {
     HORN = 0,
     WIPER =1
   } horn_wipers_t;
-	
-    
+
+
 
   /*
    * Motor system
@@ -157,7 +162,7 @@ namespace can_msg {
   typedef enum {
       TIME = 0  // len:6 [time_t]
   } other_t;
-  
+
   typedef enum {
       YEAR = 0,
       MONTH = 1,
@@ -166,6 +171,6 @@ namespace can_msg {
       MINUTE = 4,
       SECOND = 5
   } date_t;
-  
+
 
 #endif
