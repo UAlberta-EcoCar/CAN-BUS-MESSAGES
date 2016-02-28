@@ -95,7 +95,7 @@ void send_fc_purge_count(uint8_t val)
 }
 
 //FC_TIME_BETWEEN_LAST_PURGES
-void send_fc_time_between_last_purges(uint32_t val)
+void send_fc_time_between_last_purges(uint32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -105,52 +105,33 @@ void send_fc_time_between_last_purges(uint32_t val)
 	while(can_send_message(&msg));
 }
 
-//FC_ENERGY_SINCE_LAST_PURGE
-void send_fc_energy_since_last_purge(uint32_t val)
+//FC_ENERGY TOTAL / SINCE_LAST_PURGE
+void send_fc_energy_since_last_purge(uint32_t total, uint32_t last)
 {
 	//make a messages
 	CanMessage msg;
 	msg.id = fc_energy_since_last_purge_msg.id();
 	msg.length = fc_energy_since_last_purge_msg.len();
-	fc_energy_since_last_purge_msg.buf(msg.data, val);
+	fc_energy_since_last_purge_msg.buf(msg.data, total << can_msg::FC_TOTAL_ENERGY, last << can_msg::FC_ENERGY_SINCE_LAST_PURGE);
 	while(can_send_message(&msg));
 }
 
-//FC_TOTAL_ENERGY
-void send_fc_total_energy(uint32_t val)
-{
-	//make a messages
-	CanMessage msg;
-	msg.id = fc_total_energy_msg.id();
-	msg.length = fc_total_energy_msg.len();
-	fc_total_energy_msg.buf(msg.data, val);
-	while(can_send_message(&msg));
-}
 
-//FC_CHARGE_SINCE_LAST_PURGE
-void send_fc_charge_since_last_purge(uint32_t val)
+
+//FC_CHARGE TOTAL/SINCE_LAST_PURGE
+void send_fc_charge(uint32_t total, uint32_t last)
 {
 	//make a messages
 	CanMessage msg;
 	msg.id = fc_charge_since_last_purge_msg.id();
 	msg.length = fc_charge_since_last_purge_msg.len();
-	fc_charge_since_last_purge_msg.buf(msg.data, val);
+	fc_charge_since_last_purge_msg.buf(msg.data, total << can_msg::FC_TOTAL_CHARGE, last << can_msg::FC_CHARGE_SINCE_LAST_PURGE);
 	while(can_send_message(&msg));
 }
 
-//FC_TOTAL_CHARGE
-void send_fc_total_charge(uint32_t val)
-{
-	//make a messages
-	CanMessage msg;
-	msg.id = fc_total_charge_msg.id();
-	msg.length = fc_total_charge_msg.len();
-	fc_total_charge_msg.buf(msg.data, val);
-	while(can_send_message(&msg));
-}
 
 //FCVOLT
-void send_fc_volt(int32_t val)
+void send_fc_volt(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -161,7 +142,7 @@ void send_fc_volt(int32_t val)
 }
 
 //FCCURR
-void send_fc_curr(int32_t val)
+void send_fc_curr(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -172,7 +153,7 @@ void send_fc_curr(int32_t val)
 }
 
 //FCTEMP
-void send_fc_temp(int32_t val)
+void send_fc_temp(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -183,7 +164,7 @@ void send_fc_temp(int32_t val)
 }
 
 //FCPRES
-void send_fc_pres(int32_t val)
+void send_fc_pres(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -194,7 +175,7 @@ void send_fc_pres(int32_t val)
 }
 
 //FC_CAPVOLT
-void send_fc_capvolt(int32_t val)
+void send_fc_capvolt(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;
@@ -206,7 +187,7 @@ void send_fc_capvolt(int32_t val)
 
 
 //FC_FAN_SPEED
-void send_fc_fan_speed(int32_t val)
+void send_fc_fan_speed(int32_t VAL1)
 {
 	//make a messages
 	CanMessage msg;

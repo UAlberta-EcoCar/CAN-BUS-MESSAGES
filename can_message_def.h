@@ -57,19 +57,17 @@ namespace can_msg {
     FC_STATE = 1,                       //len 1 [fc_state]    UINT8
     FC_PURGE_COUNT = 2,                 //len 1               UINT8
     FC_TIME_BETWEEN_LAST_PURGES = 3,    //len 1               UINT32
-    FC_ENERGY_SINCE_LAST_PURGE = 4,	    //len 1               UINT32
-    FC_TOTAL_ENERGY = 5,                //len 1               UINT32
-    FC_CHARGE_SINCE_LAST_PURGE = 6,	    //len 1               UINT32
-    FC_TOTAL_CHARGE = 8,                //len 1               UINT32
+    FC_ENERGY = 4,	                    //len 2               UINT32
+    FC_CHARGE = 5,	                    //len 2               UINT32
     //FC levels
-    FC_VOLT = 9,                        //len 1               INT32
-    FC_CURR = 10,                       //len 1               INT32
-    FC_TEMP = 11,                       //len 1               INT32
-    FC_PRES = 12,                       //len 1               INT32
-    FC_CAPVOLT = 13,                    //len 1               INT32
-    FC_FAN_SPEED = 14,                  //len 1               INT32 (should change to UINT16)
+    FC_VOLT = 6,                        //len 1               INT32
+    FC_CURR = 7,                        //len 1               INT32
+    FC_TEMP = 8,                        //len 1               INT32
+    FC_PRES = 9,                        //len 1               INT32
+    FC_CAPVOLT = 10,                    //len 1               INT32
+    FC_FAN_SPEED = 11,                  //len 1               INT32 (should change to UINT16)
     //output states
-    FC_OUTPUTS = 15                     //len 6 [fc_outputs_t] BOOL
+    FC_OUTPUTS = 12                     //len 6 [fc_outputs_t] BOOL
   } fuel_cell_t;
     //each error has it's own bit
   typedef enum {
@@ -100,6 +98,16 @@ namespace can_msg {
     FC_STATE_RUN = 6,
     FC_STATE_ALARM = 8
   } fc_state_t;
+  //FC_ENERGY and FC_CHARGE send two values:
+  //TOTAL ENERGY/CHARGE and ENERGY/CHARGE since last purge
+  typedef enum {
+    FC_TOTAL_CHARGE = 0,
+    FC_CHARGE_SINCE_LAST_PURGE = 32 
+  } fc_charge;
+  typedef enum {
+    FC_TOTAL_ENERGY = 0,
+    FC_ENERGY_SINCE_LAST_PURGE = 32
+  }
   //fc_outputs bits
   typedef enum {
 	FC_START_RELAY = 0,
@@ -117,24 +125,16 @@ namespace can_msg {
   */
   typedef enum {
     SIGNAL = 0,         //len:3 [signal_t]
-    HORN_WIPERS = 1,    //len:2 [horn_wipers_t]
-		HEADLIGHTS = 2
+    HORN = 1,           //len:1 
+    WIPERS = 2,         //len:1
+	HEADLIGHTS = 3
   } aux_t;
-	//define headlight bits
-	typedef enum {
-		HEADLIGHTBIT = 0
-	} headlight_t;
   //define signal bits
   typedef enum {
     LEFT_SIGNAL = 0,
     RIGHT_SIGNAL = 1,
     HAZARD_LIGHTS = 2
   } signal_t;
-  //define bits
-  typedef enum {
-    HORN = 0,
-    WIPER =1
-  } horn_wipers_t;
 
 
 
