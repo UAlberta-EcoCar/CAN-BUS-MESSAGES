@@ -107,7 +107,7 @@ namespace can_msg {
   typedef enum {
     FC_TOTAL_ENERGY = 0,
     FC_ENERGY_SINCE_LAST_PURGE = 32
-  }
+  } dc_energy;
   //fc_outputs bits
   typedef enum {
 	FC_START_RELAY = 0,
