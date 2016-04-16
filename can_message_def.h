@@ -154,10 +154,7 @@ namespace can_msg {
     MERROR_OVERCURRENT = 1
   } motor_error_t;
 
-};
-
-
- /*
+   /*
   * Other systems
   */
   typedef enum {
@@ -172,6 +169,9 @@ namespace can_msg {
       MINUTE = 4,
       SECOND = 5
   } date_t;
+
+
+};
 
 
 #endif
