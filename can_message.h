@@ -4,7 +4,7 @@
 #include <stdio.h> //needed for memcpy and uint8_t , unint16_t etc
 #include <string.h> //needed for memcpy
 #include "can_message_def.h"
-#include <Arduino.h>
+
 
 namespace can_msg {
   /*
@@ -40,7 +40,7 @@ namespace can_msg {
     uint8_t len() { return _len; }
 
     void buf( uint8_t buf[], int32_t n ) {
-      memcpy(buf, &n,_len);
+      memcpy(buf, &n, _len);
     }
   };  
 
