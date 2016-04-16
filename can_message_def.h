@@ -102,7 +102,7 @@ namespace can_msg {
   //TOTAL ENERGY/CHARGE and ENERGY/CHARGE since last purge
   typedef enum {
     FC_TOTAL_CHARGE = 0,
-    FC_CHARGE_SINCE_LAST_PURGE = 32
+    FC_CHARGE_SINCE_LAST_PURGE = 32 
   } fc_charge;
   typedef enum {
     FC_TOTAL_ENERGY = 0,
@@ -125,7 +125,7 @@ namespace can_msg {
   */
   typedef enum {
     SIGNAL = 0,         //len:3 [signal_t]
-    HORN = 1,           //len:1
+    HORN = 1,           //len:1 
     WIPERS = 2,         //len:1
 	HEADLIGHTS = 3,     //len:1
     AUX_STATUS = 4      //len:1
@@ -154,23 +154,24 @@ namespace can_msg {
     MERROR_OVERCURRENT = 1
   } motor_error_t;
 
-  /*
-   * Other systems
-   */
-   typedef enum {
-       TIME = 0  // len:6 [time_t]
-   } other_t;
-
-   typedef enum {
-       YEAR = 0,
-       MONTH = 1,
-       DAY = 2,
-       HOUR = 3,
-       MINUTE = 4,
-       SECOND = 5
-   } date_t;
-
 };
+
+
+ /*
+  * Other systems
+  */
+  typedef enum {
+      TIME = 0  // len:6 [time_t]
+  } other_t;
+
+  typedef enum {
+      YEAR = 0,
+      MONTH = 1,
+      DAY = 2,
+      HOUR = 3,
+      MINUTE = 4,
+      SECOND = 5
+  } date_t;
 
 
 #endif
