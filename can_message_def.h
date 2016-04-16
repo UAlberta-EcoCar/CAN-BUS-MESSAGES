@@ -127,7 +127,8 @@ namespace can_msg {
     SIGNAL = 0,         //len:3 [signal_t]
     HORN = 1,           //len:1
     WIPERS = 2,         //len:1
-	HEADLIGHTS = 3
+	HEADLIGHTS = 3,     //len:1
+    AUX_STATUS = 4      //len:1
   } aux_t;
   //define signal bits
   typedef enum {
