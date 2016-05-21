@@ -24,7 +24,7 @@ namespace can_msg {
     INT16 = 3,
     UINT16 = 4,
     INT32 = 5,
-	UINT32 = 6,
+		UINT32 = 6,
   } format_t;
 
   /*
@@ -34,7 +34,7 @@ namespace can_msg {
     FUEL_CELL = 0,
     MOTOR = 1,
     AUX = 2,
-	OTHER = 3
+		OTHER = 3
   } device_t;
 
   /*
@@ -102,7 +102,7 @@ namespace can_msg {
   //TOTAL ENERGY/CHARGE and ENERGY/CHARGE since last purge
   typedef enum {
     FC_TOTAL_CHARGE = 0,
-    FC_CHARGE_SINCE_LAST_PURGE = 32 
+    FC_CHARGE_SINCE_LAST_PURGE = 32
   } fc_charge;
   typedef enum {
     FC_TOTAL_ENERGY = 0,
@@ -125,9 +125,9 @@ namespace can_msg {
   */
   typedef enum {
     SIGNAL = 0,         //len:3 [signal_t]
-    HORN = 1,           //len:1 
+    HORN = 1,           //len:1
     WIPERS = 2,         //len:1
-	HEADLIGHTS = 3,     //len:1
+		HEADLIGHTS = 3,     //len:1
     AUX_STATUS = 4      //len:1             BOOL
   } aux_t;
   //define signal bits
@@ -147,7 +147,8 @@ namespace can_msg {
     BRAKE = 1,    // len:1
     MERROR = 3,   // len:2  [motor_error_t]
     MCURRENT = 4, // len:1
-    MSPEED = 6    // len:1
+    MSPEED = 6,   // len:1
+		MRPM = 7			// len:1
   } motor_t;
   typedef enum {
     MERROR_STALL = 0,
